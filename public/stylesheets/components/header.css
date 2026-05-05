@@ -6,7 +6,7 @@
 .top-row {
   display: flex;
   align-items: center;
-  padding: 5px 16px 16px;
+  padding: 5px 20px 5px;
 }
 
 .logo img {
@@ -48,7 +48,7 @@
   display: flex;
   flex-direction: column;
   list-style: none;
-  padding-left: 16px;
+  padding-left: 20px;
 }
 
 .mainMenu a {
