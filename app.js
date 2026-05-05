@@ -5,6 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
 
+var Database = require("better-sqlite3");
+
+const db = new Database("./data/freakyfashion.db", {
+  verbose: console.log,
+});
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -17,6 +23,11 @@ app.set('view engine', 'ejs');
 //layout
 app.use(expressLayouts);
 app.set('layout', 'layout');
+
+app.use((req, res, next) => {
+  res.locals.categories = db.prepare('SELECT * FROM categories').all();
+  next();
+});
 
 app.use(logger('dev'));
 app.use(express.json());
