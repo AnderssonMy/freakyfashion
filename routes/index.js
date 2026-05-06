@@ -3,16 +3,16 @@ var router = express.Router();
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
-
-  //hämta produkter från databas
-
   res.render("index", { title: "Freaky Fashion" });
 });
+
 
 // static pages
 
 router.get("/search", (req, res) => {
-  res.render("pages/search", { title: "Freaky Fashion" });
+  const query = req.query.q;
+
+  res.render("pages/search", { title: "Freaky Fashion", query });
 });
 
 router.get("/favorites", (req, res) => {

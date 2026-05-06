@@ -5,112 +5,114 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/layout.css">
-    <link rel="stylesheet" href="stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/base.css">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
     />
 </head>
 <body>
-    <header class="site-header">
-      <div class="header-top">
-        <div class="logo">
-          <a href="/">
-          <img src="https://placehold.co/500x200" alt="logo" />
-          </a>
-        </div>
-
-        <div class="top-row">
-          <div class="search-bar">
-            <form action="search">
-              <span class="searchbar-icon"
-                ><i class="fa-brands fa-sistrix"></i
-              ></span>
-              <input type="search" placeholder="Sök Produkter" />
-            </form>
-          </div>
-
-          <div class="header-icons">
-            <a href="/favorites"><i class="fa-solid fa-heart"></i></a>
-            <a href="/basket"><i class="fa-solid fa-bag-shopping"></i></a>
-            <a href="/register"><i class="fa-solid fa-right-to-bracket"></i></a>
-          </div>
-        </div>
+  <header class="site-header">
+    <div class="header-top">
+      <div class="logo">
+        <a href="/">
+        <img src="https://placehold.co/500x200" alt="logo" />
+        </a>
       </div>
 
-      <nav class="mainMenu">
-        <ul>
-      <% categories.forEach(categories => { %>
+      <div class="top-row">
+        <div class="search-bar">
+          <form action="/search" method="GET">
+            <span class="searchbar-icon"
+              ><i class="fa-brands fa-sistrix"></i
+            ></span>
+            <input type="search" name="q" placeholder="Sök Produkter" />
+          </form>
+        </div>
+
+        <div class="header-icons">
+          <a href="/favorites"><i class="fa-solid fa-heart"></i></a>
+          <a href="/basket"><i class="fa-solid fa-bag-shopping"></i></a>
+          <a href="/register"><i class="fa-solid fa-right-to-bracket"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <nav class="mainMenu">
+      <ul>
+        <li><a href="/news">Nyheter</a></li>
+
+        <% categories.forEach(category => { %>
         <li>
-          <%= categories.name %>
+          <a href="/categories/<%= category.slug %>">
+            <%= category.name %>
+          </a>
         </li>
+        <%  }) %>
+      </ul>
+    </nav>
+  </header>
 
-     <%  }) %>
-    </ul>
+  <main>
+    <%- body %>
+  </main>
 
-      </nav>
-    </header>
-
-    <main>
-        <%- body %>
-    </main>
-
-    <footer>
+  <footer>
     <section class="benefits">
-        <div class="benefit">
-          <i class="fa-solid fa-earth-americas"></i>
-          <span>Gratis frakt och returer </span>
-        </div>
+      <div class="benefit">
+        <i class="fa-solid fa-earth-americas"></i>
+        <span>Gratis frakt och returer </span>
+      </div>
 
-        <div class="benefit">
-          <i class="fa-solid fa-plane"></i>
-          <span>Expressfrakt </span>
-        </div>
+      <div class="benefit">
+        <i class="fa-solid fa-plane"></i>
+        <span>Expressfrakt </span>
+      </div>
 
-        <div class="benefit">
-          <i class="fa-solid fa-shield-halved"></i>
-          <span>Säkra betalningar </span>
-        </div>
+      <div class="benefit">
+        <i class="fa-solid fa-shield-halved"></i>
+        <span>Säkra betalningar </span>
+      </div>
 
-        <div class="benefit">
-          <i class="fa-regular fa-face-smile"></i>
-          <span>Nyheter varje dag </span>
-        </div>
-      </section>
+      <div class="benefit">
+        <i class="fa-regular fa-face-smile"></i>
+        <span>Nyheter varje dag </span>
+      </div>
+    </section>
 
-      <section class="footer-accordion">
-        <details open>
-          <summary class="footer-menu">Shopping</summary>
+    <section class="footer-accordion">
+      <details open>
+        <summary class="footer-menu">Shopping</summary>
           <ul class="footer-menu-list">
             <li><a href="#">Vinterjackor</a></li>
             <li><a href="#">Pufferjackor</a></li>
             <li><a href="#">Kappa</a></li>
             <li><a href="#">Trenchcoats</a></li>
           </ul>
-        </details>
+      </details>
 
-        <details>
-          <summary class="footer-menu">Villkor</summary>
-          <ul class="footer-menu-list">
-            <li><a href="#">Användarvillkor</a></li>
+      <details>
+        <summary class="footer-menu">Villkor</summary>
+        <ul class="footer-menu-list">
+          <li><a href="#">Användarvillkor</a></li>
             <li><a href="#">Köpvillkor</a></li>
             <li><a href="#">Personuppgiftspolicy</a></li>
             <li><a href="#">Företagsinformation</a></li>
-          </ul>
-        </details>
+        </ul>
+      </details>
 
-        <details>
-          <summary class="footer-menu">Kundtjänst</summary>
+      <details>
+        <summary class="footer-menu">Kundtjänst</summary>
           <ul class="footer-menu-list">
             <li><a href="#">Kontakta oss</a></li>
             <li><a href="#">Byte och retur</a></li>
             <li><a href="#">Frakt och leverans</a></li>
             <li><a href="#">Presentkort</a></li>
           </ul>
-        </details>
-      </section>
+      </details>
+    </section>
 
-      <section class="footer-copy">&copy; 2026 Freaky Fashion.</section>
-    </footer>
+    <section class="footer-copy">&copy; 2026 Freaky Fashion.<section>
+  </footer>
 </body>
 </html>
