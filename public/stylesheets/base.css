@@ -16,3 +16,12 @@ body {
 a {
   text-decoration: none;
 }
+
+a:hover {
+  color: #d6bfa9;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
