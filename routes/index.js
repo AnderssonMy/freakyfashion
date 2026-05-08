@@ -1,10 +1,12 @@
 var express = require("express");
 var router = express.Router();
 const products = require("../data/products.mock");
+const hero = require("../data/hero.mock");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
   const today = new Date();
+
 
   const visibleProducts = products
   .filter(product => {
@@ -22,7 +24,7 @@ router.get("/", function (req, res, next) {
   });
 
 
-  res.render("index", { title: "Freaky Fashion", products: visibleProducts });
+  res.render("index", { title: "Freaky Fashion", hero, products: visibleProducts });
 });
 
 
