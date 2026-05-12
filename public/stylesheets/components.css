@@ -58,7 +58,6 @@
   display: grid;
   gap: 1rem;
   grid-template-columns: 1fr;
-  padding-bottom: 10rem;
 }
 
 .product-img-wrapper {
