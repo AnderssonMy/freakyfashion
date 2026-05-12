@@ -2,6 +2,7 @@ var express = require("express");
 var router = express.Router();
 const products = require("../data/products.mock");
 const hero = require("../data/hero.mock");
+const spots = require("../data/spots.mock");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
@@ -24,7 +25,7 @@ router.get("/", function (req, res, next) {
   });
 
 
-  res.render("index", { title: "Freaky Fashion", hero, products: visibleProducts });
+  res.render("index", { title: "Freaky Fashion", hero, spots, products: visibleProducts });
 });
 
 

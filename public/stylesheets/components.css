@@ -1,11 +1,11 @@
+/* Hero section */
 .hero {
   border: solid black;
   background-color: white;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
-  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 /* .hero img {
@@ -126,5 +126,40 @@
 
   .product-img-wrapper {
     height: 400px;
+  }
+}
+
+
+/* Spots */
+
+.spots {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .spots {
+    display: flex;
+    gap: 1rem;
+    padding-bottom: 30px;
+  }
+
+  .spot {
+    position: relative;
+  }
+  .spots img {
+    max-width: 100%;
+    height: auto;
+    filter: brightness(0.7);
+  }
+
+  .spot-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    color: white;
   }
 }
