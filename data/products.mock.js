@@ -6,7 +6,7 @@ const products = [ {
     price: 199,
     image: "/images/svart-tshirt.jpg",
     description: "En stilren klassiker med en modern twist. Denna svarta t-shirt kombinerar en minimalistisk framsida med ett kontrastrikt vitt tryck över ryggen för en distinkt look.",
-    publishedAt: "2026-05-01",
+    publishedAt: "2026-05-06",
     isFavorite: false
 },
 
@@ -24,13 +24,13 @@ const products = [ {
 
 {
     id: 3,
-    name: "Beige T-Shirt",
-    slug: "beige-tshirt",
+    name: "Blue T-Shirt",
+    slug: "blue-tshirt",
     brand: "Adidas",
     price: 299,
-    image: "/images/beige-tshirt.webp",
-    description: "Beige tshirt",
-    publishedAt: "2029-01-01",
+    image: "/images/blue-tshirt.webp",
+    description: "Blue tshirt",
+    publishedAt: "2026-01-01",
     isFavorite: false
 }
 
