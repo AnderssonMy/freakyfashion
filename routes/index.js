@@ -1,20 +1,20 @@
 var express = require("express");
 var router = express.Router();
-const products = require("../data/products.mock");
+
+const Database = require("better-sqlite3");
+const db = new Database("./data/freakyfashion.db");
+
 const hero = require("../data/hero.mock");
 const spots = require("../data/spots.mock");
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
+  const products = db.prepare("SELECT * FROM products").all();
+
   const today = new Date();
 
-
-  const visibleProducts = products
-  .filter(product => {
-    return new Date(product.publishedAt) <= today;
-  })
-  .map(product => {
-    const publishedDate = new Date(product.publishedAt);
+  const visibleProducts = products.map(product => {
+    const publishedDate = new Date(product.published_at);
 
     const diffInDays = (today - publishedDate) / (1000 * 60 * 60 * 24);
 
@@ -23,7 +23,6 @@ router.get("/", function (req, res, next) {
       isNew: diffInDays <= 7
     };
   });
-
 
   res.render("index", { title: "Freaky Fashion", hero, spots, products: visibleProducts });
 });
@@ -64,7 +63,10 @@ router.get("/categories/:slug", (req, res) => {
 router.get("/products/:slug", (req, res) => {
   const slug = req.params.slug;
 
-  res.render("pages/products", {title: slug });
+  const product = db
+  .prepare("SELECT * FROM products WHERE slug = ?").get(slug);
+
+  res.render("pages/products", {title: product.name, product });
 });
 
 

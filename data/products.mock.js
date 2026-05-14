@@ -6,7 +6,7 @@ const products = [ {
     price: 199,
     image: "/images/svart-tshirt.jpg",
     description: "En stilren klassiker med en modern twist. Denna svarta t-shirt kombinerar en minimalistisk framsida med ett kontrastrikt vitt tryck över ryggen för en distinkt look.",
-    publishedAt: "2026-05-06",
+    publishedAt: "2026-05-07",
     isFavorite: false
 },
 
