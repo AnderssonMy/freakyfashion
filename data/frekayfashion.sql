@@ -1,3 +1,4 @@
+-- CATEGORIES TABLE
 CREATE TABLE categories (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL,
@@ -29,3 +30,11 @@ INSERT INTO products (name, slug, description, price, brand, image, published_at
 VALUES
 ('Svart T-Shirt', 'svart-tshirt', 'Stilren svart t-shirt med tryck på ryggen', 199, 'levis', '/images/svart-tshirt.webp', '2026-05-01', 1),
 ('Vit T-Shirt', 'vit-tshirt', 'En vit t-shirt', 249, 'Vans', '/images/vit-tshirt.webp', '2026-05-05', 1);
+
+-- USERS TABLE 
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    email TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL,
+    is_admin INTEGER DEFAULT 0
+);
