@@ -54,7 +54,10 @@ router.get("/favorites", (req, res) => {
 });
 
 router.get("/news", (req, res) => {
-  res.render("pages/news", { title: "Freaky Fashion" });
+
+  const products = db.prepare("SELECT * FROM products WHERE published_at BETWEEN datetime('now', '-7 days') AND datetime ('now') ORDER BY published_at DESC;").all(); 
+
+  res.render("pages/news", { title: "Freaky Fashion", products });
 });
 
 router.get("/basket", (req, res) => {
