@@ -57,7 +57,15 @@ router.get("/register", (req, res) => {
 router.get("/categories/:slug", (req, res) => {
   const slug = req.params.slug;
 
-  res.render("pages/categories", {title: "Freaky Fashion", slug });
+  const category = db.prepare("SELECT * FROM categories WHERE slug = ?").get(slug);
+
+  if(!category) {
+    return res.status(404).send("Kategorin kunde inte hittas");
+  }
+
+  const products = db.prepare("SELECT * FROM products WHERE category_id = ?").all(category.id);
+
+  res.render("pages/categories", {title: "Freaky Fashion", slug, category, products });
 });
 
 router.get("/products/:slug", (req, res) => {
