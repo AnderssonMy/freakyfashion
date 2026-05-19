@@ -1,1 +1,42 @@
-<h1>Products</h1>
+<article class="details-card">
+    <div class="img-wrap">
+        <img src="<%= product.image %>" alt="<%= product.name %>">
+    </div>
+    <div class="details-info">
+        <h2><%= product.name %></h2>
+        <p class="brand"><%= product.brand %></p>
+        <p><%= product.description %></p>
+        <p><%= product.price %> SEK</p>
+        <button>Lägg till i varukorgen</button>
+    </div>
+</article>
+
+<section class="carousel-wrapper">
+    <h3>Liknande produkter</h3>
+
+    <div class="carousel-container">
+        <button id="leftScroll" class="scroll-btn">&lt;</button>
+
+        <div class="carousel-slide">
+
+            <div class="carousel-row" id="carouselRow">
+            <% similar_products.forEach(p => { %>
+                <div class="card">
+                    <a href="/products/<%= p.slug %>">
+                        <img src="<%= p.image %>" alt="<%= p.name %>">
+                    </a>
+
+                    <div class="card-info">
+                        <p><%= p.name %></p>
+                        <p><%= p.price %> SEK</p>
+                        <p class="brand"><%= p.brand %></p>
+                    </div>
+                </div>
+            <% }) %>
+            </div>
+            </div>
+        <button id="rightScroll" class="scroll-btn">&gt;</button>
+    </div>
+</section>
+<script src="/javascripts/carousel.js"></script>
+

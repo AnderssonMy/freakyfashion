@@ -21,7 +21,8 @@ CREATE TABLE products (
     brand TEXT,
     image TEXT,
     published_at TEXT,
-    category_id INTEGER
+    category_id INTEGER,
+    FOREIGN KEY (category_id) REFERENCES categories(id)
 );
 
 INSERT INTO products (name, slug, description, price, brand, image, published_at, category_id)
