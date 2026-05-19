@@ -1,1 +1,8 @@
-<h1>search</h1>
+<% if (products.length === 0) { %>
+    <h1>Inga produkter hittades</h1>
+    <% } else { %>
+
+        <h1><%= products.length %> produkter hittades</h1>
+
+        <%- include("../partials/product-grid", {products}) %>
+<% } %>
