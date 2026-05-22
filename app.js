@@ -4,6 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const expressLayouts = require("express-ejs-layouts");
+var session = require("express-session");
 
 var Database = require("better-sqlite3");
 
@@ -15,7 +16,7 @@ var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 var searchRouter = require("./routes/search");
 var favoritesRouter = require("./routes/favorites");
-var newRouter = require("./routes/news");
+var newsRouter = require("./routes/news");
 var categoriesRouter = require("./routes/categories");
 var productsRouter = require("./routes/products");
 var basketRouter = require("./routes/basket");
@@ -23,6 +24,11 @@ var registerRouter = require("./routes/register");
 
 
 var app = express();
+
+
+app.use(session({
+  secret: 'supersecretradomstring',
+}));
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -47,7 +53,7 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/search", searchRouter);
 app.use("/favorites", favoritesRouter);
-app.use("/news", newRouter);
+app.use("/news", newsRouter);
 app.use("/categories", categoriesRouter);
 app.use("/products", productsRouter);
 app.use("/basket", basketRouter);
