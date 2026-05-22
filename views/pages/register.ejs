@@ -1,1 +1,17 @@
-<h1>Register</h1>
+<h1>Registrera konto</h1>
+
+<form action="/register" method="POST">
+  <div class="register-form">
+    <div>
+      <label for="email">E-post</label>
+      <input type="text" id="email" name="email" required />
+    </div>
+
+    <div>
+      <label for="password">Lösenord</label>
+      <input type="text" id="password" name="password" required />
+    </div>
+
+    <button class="sub-button" type="submit">Registrera</button>
+  </div>
+</form>
