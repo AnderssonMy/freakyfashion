@@ -13,6 +13,14 @@ const db = new Database("./data/freakyfashion.db", {
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
+var searchRouter = require("./routes/search");
+var favoritesRouter = require("./routes/favorites");
+var newRouter = require("./routes/news");
+var categoriesRouter = require("./routes/categories");
+var productsRouter = require("./routes/products");
+var basketRouter = require("./routes/basket");
+var registerRouter = require("./routes/register");
+
 
 var app = express();
 
@@ -37,6 +45,13 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/search", searchRouter);
+app.use("/favorites", favoritesRouter);
+app.use("/news", newRouter);
+app.use("/categories", categoriesRouter);
+app.use("/products", productsRouter);
+app.use("/basket", basketRouter);
+app.use("/register", registerRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
