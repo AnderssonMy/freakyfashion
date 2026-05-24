@@ -6,11 +6,7 @@ var logger = require("morgan");
 const expressLayouts = require("express-ejs-layouts");
 var session = require("express-session");
 
-var Database = require("better-sqlite3");
-
-const db = new Database("./data/freakyfashion.db", {
-  verbose: console.log,
-});
+const db = require("./db");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
@@ -21,6 +17,7 @@ var categoriesRouter = require("./routes/categories");
 var productsRouter = require("./routes/products");
 var basketRouter = require("./routes/basket");
 var registerRouter = require("./routes/register");
+
 
 
 var app = express();
@@ -58,6 +55,7 @@ app.use("/categories", categoriesRouter);
 app.use("/products", productsRouter);
 app.use("/basket", basketRouter);
 app.use("/register", registerRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

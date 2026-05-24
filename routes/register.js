@@ -13,9 +13,16 @@ router.post("/", (req, res) => {
     password
   } = req.body;
 
-  console.log(email, password);
 
-  res.redirect('back');
+  const newUser = db.prepare (`INSERT INTO users (email, password, is_admin) VALUES (?, ?, 0)`).run(email, password);
+
+  req.session.user = {
+    id: newUser.lastInsertRowid,
+    email,
+    is_admin: 0
+  };
+
+  res.redirect('/');
 }); 
 
 module.exports = router; 
