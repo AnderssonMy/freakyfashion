@@ -17,6 +17,8 @@ var categoriesRouter = require("./routes/categories");
 var productsRouter = require("./routes/products");
 var basketRouter = require("./routes/basket");
 var registerRouter = require("./routes/register");
+var adminProd = require("./routes/admin/products");
+var adminCat = require("./routes/admin/categories");
 
 
 
@@ -55,6 +57,8 @@ app.use("/categories", categoriesRouter);
 app.use("/products", productsRouter);
 app.use("/basket", basketRouter);
 app.use("/register", registerRouter);
+app.use("/admin/products", adminProd);
+app.use("/admin/categories", adminCat);
 
 
 // catch 404 and forward to error handler
