@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%- title %></title>
+    <link rel="stylesheet" href="/stylesheets/base.css">
+    <link rel="stylesheet" href="/stylesheets/admin/adminLayout.css">
+    <link rel="stylesheet" href="/stylesheets/admin/adminProducts.css">
+     <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/stylesheets/admin/adminCategories.css">
+  </head>
+  <body class="admin">
+    <header>
+      <section class="header-section">
+        <h1>Administration</h1>
+      </section>
+    </header>
+
+    <div class="container">
+      <aside class="side-bar">
+        <nav>
+            <ul>
+                <li><a href="/admin/products">Produkter</a></li>
+                <li><a href="/admin/categories">Kategorier</a></li>
+            </ul>
+        </nav>
+      </aside>
+
+      <main class="main-container">
+        <%- body %>
+      </main>
+    </div>
+  </body>
+</html>

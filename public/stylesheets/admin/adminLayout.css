@@ -1,0 +1,36 @@
+body.admin h1 {
+  text-align: left;
+  padding: 20px;
+}
+
+.header-section {
+  background-color: #212121;
+  color: #f9f8f6;
+}
+
+.side-bar {
+  background-color: #495a58;
+  min-height: 100vw;
+  color: #f9f8f6;
+  padding: 20px;
+  width: 12rem;
+}
+
+.side-bar li {
+    list-style: none;
+    padding-top: 20px;
+    font-size: 1.5rem;
+}
+
+.side-bar a {
+  color: #f9f8f6;
+}
+
+.container {
+  display: flex;
+}
+
+.main-container {
+  flex: 1;
+  padding: 20px;
+}

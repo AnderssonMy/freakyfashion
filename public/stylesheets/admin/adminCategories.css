@@ -1,0 +1,32 @@
+
+.admin-categories {
+    display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 0.5rem;
+}
+
+.add-cat {
+    font-size: 1rem;
+    width: 5rem;
+    margin-top: auto;
+    position: fixed;
+    bottom: 20px;
+    
+
+    background-color: #495a58;
+  color: #f9f8f6;
+  padding: 0.2rem;
+  border-radius: 0.5rem;
+}
+
+.admin-categories input {
+    font-size: 1rem;
+    padding: 2px;
+}
+
+label {
+    font-size: 1rem;
+    font-weight: bold;
+}
+

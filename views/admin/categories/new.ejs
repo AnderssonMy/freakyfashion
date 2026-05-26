@@ -1,0 +1,28 @@
+<main class="main-container">
+  <form class="admin-categories">
+    <h2>Ny kategori</h2>
+
+    <label for="name">Namn</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      placeholder="Ange Namn"
+      autofocus
+      maxlength="25"
+      required
+    />
+
+    <label for="image">Bild</label>
+    <input
+      class="image-button"
+      type="file"
+      id="image"
+      name="image"
+      accept=".png, .jpeg, .jpg, .gif, .WebP, .TIFF, .SVG .HEIF, .HEIC, .RAW"
+      required
+    />
+
+    <button class="add-cat" type="submit">Lägg till</button>
+  </form>
+</main>

@@ -20,10 +20,7 @@ var registerRouter = require("./routes/register");
 var adminProd = require("./routes/admin/products");
 var adminCat = require("./routes/admin/categories");
 
-
-
 var app = express();
-
 
 app.use(session({
   secret: 'supersecretradomstring',
@@ -37,7 +34,16 @@ app.set("view engine", "ejs");
 app.use(expressLayouts);
 app.set("layout", "layout");
 
+app.use("/admin", (req, res, next) => {
+  res.locals.layout = "admin/layout";
+  next ();
+});
+
 app.use((req, res, next) => {
+  if (req.path.startsWith("/admin")) {
+    return next ();
+  }
+
   res.locals.categories = db.prepare("SELECT * FROM categories").all();
   next();
 });

@@ -1,0 +1,71 @@
+.top-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.main-table {
+  width: 100%;
+  margin-top: 40px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid black;
+  text-align: left;
+}
+
+td {
+  padding: 4px;
+}
+
+th {
+  background-color: hsl(0, 0%, 62%);
+  padding: 4px;
+}
+
+.button {
+  background-color: #495a58;
+  color: #f9f8f6;
+  padding: 0.5em;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}
+
+.action a {
+  color: #212121;
+}
+
+.action a:hover {
+  color: #bd9c83;
+}
+
+.action {
+  text-align: center;
+}
+
+.admin-products {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  gap: 0.5rem;
+}
+
+.admin-products button {
+  padding: 0.5rem 1rem;
+  width: 6rem;
+}
+
+.admin-products input {
+  font-size: 1rem;
+  padding: 2px;
+}
+
+.add-btn {
+  background-color: #495a58;
+  color: #f9f8f6;
+  padding: 0.5em;
+  border-radius: 0.5rem;
+  text-decoration: none;
+}

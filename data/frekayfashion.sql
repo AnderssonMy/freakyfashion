@@ -38,3 +38,7 @@ CREATE TABLE users (
     password TEXT NOT NULL,
     is_admin INTEGER DEFAULT 0
 );
+
+ALTER TABLE products ADD COLUMN sku TEXT;
+
+UPDATE products SET sku = 'AAA' || printf('%03d', id);

@@ -1,0 +1,65 @@
+<main class="main-container">
+<form class="admin-products">
+  <h2>Ny produkt</h2>
+  <label for="name">Namn</label>
+  <input
+    type="text"
+    name="name"
+    id="name"
+    placeholder="Ange Namn"
+    autofocus
+    maxlength="25"
+    required
+  />
+
+  <label for="description">Beskrivning</label>
+  <textarea
+    name="description"
+    id="description"
+    maxlength="25"
+    cols="30"
+    rows="10"
+    placeholder="Ange beskrivning"
+    required
+  ></textarea>
+
+  <label for="image">Bild</label>
+  <input
+    class="image-button"
+    type="file"
+    id="image"
+    name="image"
+    accept=".png, .jpeg, .jpg, .gif, .WebP, .TIFF, .SVG .HEIF, .HEIC, .RAW"
+    required
+  />
+
+  <label for="brand">Märke</label>
+  <input type="text" name="brand" id="brand" required>
+
+  <label for="SKU">SKU</label>
+  <input
+    type="text"
+    name="SKU"
+    id="SKU"
+    placeholder="Ange SKU"
+    pattern="[A-Za-z]{3}[0-9]{3}"
+    maxlength="6"
+    required
+  />
+  <label for="pris">Pris</label>
+  <input type="number" name="pris" id="pris" required />
+
+  <label for="date">Publiseringsdatum</label>
+  <input type="date" name="date" id="date" required />
+
+  <label for="category">Kategorier</label>
+    <% categories.forEach(category => { %>
+    <p>
+        <input type="checkbox" name="categories" id="category-<%= category.id %>" value="<%= category.id %>">
+
+        <label for="category-<%= category.id %>"> <%=category.name %> </label>
+    </p>
+   <% }) %>
+  <button class="add-btn" type="submit">Lägg till</button>
+</form>
+</main>
