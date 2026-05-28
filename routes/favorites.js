@@ -27,6 +27,8 @@ router.get("/", function (req, res, next) {
     };
   });
 
+  console.log(req.session);
+
   res.render("pages/favorites", { title: "Freaky Fashion", products: visibleProducts });
 });
 

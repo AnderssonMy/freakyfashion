@@ -42,3 +42,16 @@ CREATE TABLE users (
 ALTER TABLE products ADD COLUMN sku TEXT;
 
 UPDATE products SET sku = 'AAA' || printf('%03d', id);
+
+CREATE TABLE hero (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    title TEXT NOT NULL, 
+    description TEXT NOT NULL,
+    image TEXT NOT NULL 
+);
+
+INSERT INTO hero (title, description, image) 
+VALUES (
+'SOMMARREA!', 'Discover the summer collection from Freaky Fashion, where lightweight materials and modern streetwear come together for the perfect seasonal look. Explore carefully selected pieces designed for warm days and late nights, from relaxed essentials to standout styles that bring comfort, confidence, and effortless fashion to every occasion.', '/images/heroSummer.webp'
+),
+('VINTERREA!', 'Discover the winter collection from Freaky Fashion, where comfort, warmth, and contemporary design meet to create the ultimate cold-weather wardrobe. Explore carefully curated jackets, hoodies, and seasonal essentials crafted to keep your style sharp throughout the season, from everyday streetwear to statement pieces built for colder days.', '/images/heroWinter.webp');
