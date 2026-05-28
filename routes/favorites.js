@@ -16,7 +16,8 @@ router.get("/", function (req, res, next) {
   }
 
   const favoriteProducts = allProducts.filter(product => {
-    return favoriteIds.includes(product.id);
+    const stringIds = favoriteIds.map(id => id.toString());
+    return stringIds.includes(product.id.toString());
   });
 
   const visibleProducts = favoriteProducts.map(product => {
