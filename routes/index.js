@@ -10,7 +10,7 @@ router.get("/", function (req, res, next) {
 
   const hero = db.prepare("SELECT * FROM hero WHERE id = ?").get(1);
 
-  const products = db.prepare("SELECT * FROM products").all();
+  const products = db.prepare("SELECT * FROM products WHERE is_popular = ?").all(1);
 
   const today = new Date();
 

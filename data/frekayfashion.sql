@@ -55,3 +55,7 @@ VALUES (
 'SOMMARREA!', 'Discover the summer collection from Freaky Fashion, where lightweight materials and modern streetwear come together for the perfect seasonal look. Explore carefully selected pieces designed for warm days and late nights, from relaxed essentials to standout styles that bring comfort, confidence, and effortless fashion to every occasion.', '/images/heroSummer.webp'
 ),
 ('VINTERREA!', 'Discover the winter collection from Freaky Fashion, where comfort, warmth, and contemporary design meet to create the ultimate cold-weather wardrobe. Explore carefully curated jackets, hoodies, and seasonal essentials crafted to keep your style sharp throughout the season, from everyday streetwear to statement pieces built for colder days.', '/images/heroWinter.webp');
+
+ALTER TABLE products ADD COLUMN is_popular INTEGER DEFAUL 0;
+
+UPDATE products SET is_popular = 1 WHERE id (1,2,3,4,5,6,7,8);
