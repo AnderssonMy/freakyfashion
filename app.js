@@ -24,6 +24,11 @@ var app = express();
 
 app.use(session({
   secret: 'supersecretradomstring',
+  saveUninitialized: false, 
+  resave: false,
+  cookie: {
+    maxAge: 1000 * 60 * 60 * 24 * 30
+  }
 }));
 
 // view engine setup

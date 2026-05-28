@@ -13,7 +13,7 @@ router.post("/", (req, res) => {
     password
   } = req.body;
 
-
+try {
   const newUser = db.prepare (`INSERT INTO users (email, password, is_admin) VALUES (?, ?, 0)`).run(email, password);
 
   req.session.user = {
@@ -23,6 +23,21 @@ router.post("/", (req, res) => {
   };
 
   res.redirect('/');
-}); 
+
+} catch (error) {
+  if (error.message.includes('UNIQUE')) {
+    return res.render("pages/register", {
+      title: "Freaky Fashion", 
+      error: "Du är redan registrerad. Logga in."
+
+  });
+  }
+
+  console.error(error);
+  res.status(500).render("pages/register",{ title: "Freaky Fashion", 
+    error: "Ett oväntat fel uppstod"
+  }); 
+}
+});
 
 module.exports = router; 

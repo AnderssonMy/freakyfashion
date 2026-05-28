@@ -87,14 +87,17 @@
   right: 15px;
   position: absolute;
   font-size: 3em;
-
   background: none;
   border: none;
   cursor: pointer;
 }
 
-.favorite:hover {
-  color: #bd9c83;
+.favorite .fa-regular {
+  color: white;
+}
+
+.favorite .fa-solid {
+  color: white;
 }
 
 .product-info {
