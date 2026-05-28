@@ -49,17 +49,17 @@
   }
 
   .hero img {
-    width: 100%;
+    width: 50%;
     height: 500px;
     object-fit: cover;
     display: block;
   }
 
-  /* .hero-text {
+  .hero-text {
+    width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-  } */
+  }
   
 
   .hero-text h1 {
