@@ -59,3 +59,15 @@ VALUES (
 ALTER TABLE products ADD COLUMN is_popular INTEGER DEFAUL 0;
 
 UPDATE products SET is_popular = 1 WHERE id (1,2,3,4,5,6,7,8);
+
+CREATE TABLE spots (
+    id INTEGER PRIMARY KEY AUTOINCREMENT, 
+    image TEXT NOT NULL, 
+    description TEXT NOT NULL, 
+    link TEXT NOT NULL
+);
+
+INSERT INTO spots (image, description, link)
+VALUES ('/images/caps.webp', 'Lorem, ipsum dolor.', '/'),
+('/images/black-tshirt-text.webp', 'Lorem, ipsum dolor', '/'),
+('/images/t-shirts.webp', 'Lorem, ipsum dolor', '/');

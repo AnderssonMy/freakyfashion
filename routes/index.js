@@ -3,14 +3,14 @@ var router = express.Router();
 
 const db = require("../db");
 
-const spots = require("../data/spots.mock");
-
 /* GET home page. */
 router.get("/", function (req, res, next) {
 
   const hero = db.prepare("SELECT * FROM hero WHERE id = ?").get(1);
 
   const products = db.prepare("SELECT * FROM products WHERE is_popular = ?").all(1);
+
+  const spots = db.prepare("SELECT * FROM spots").all();
 
   const today = new Date();
 
