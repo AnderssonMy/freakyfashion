@@ -12,7 +12,12 @@
         <p class="brand"><%= product.brand %></p>
         <p><%= product.description %></p>
         <p><%= product.price %> SEK</p>
-        <button>Lägg till i varukorgen</button>
+
+        <form method="POST" action="/basket">
+            <input type="hidden" name="productId" value="<%= product.id %>">
+            <button type="submit">Lägg till i varukorgen</button>
+        </form>
+
     </div>
 </article>
 

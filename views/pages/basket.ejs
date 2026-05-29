@@ -1,4 +1,9 @@
-<h1 class="checkout-h1">Varukorgen</h1>
+<h1>Varukorgen</h1>
+
+<% if (empty) { %>
+  <h2 class="basket-empty">Här var det tomt</h2>
+
+  <% } else { %>
 
 <table>
   <thead>
@@ -10,19 +15,47 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td class="table-product">Svart T-Shirt</td>
-      <td class="table-quantity">1</td>
-      <td class="table-price">199 kr</td>
-      <td class="table-total">199 kr</td>
+
+    <% products.forEach(product => { %>
+
+      <tr>
+        <td class="table-product"><%= product.name %></td>
+        <td class="table-price"><%= product.price %> SEK</td>
+        <td class="table-total"><%= product.total %> SEK</td>
+        <td class="table-quantity">
+
+        <div class="cart-selection">
+          <form method="POST" action="/basket/update">
+           <input type="hidden" name="productId" value="<%= product.id %>">
+
+           <select name="quantity" onchange="this.form.submit()">
+
+            <% for (let i = 1; i<= 10; i++) { %>
+
+              <option value="<%= i %>" <%= product.quantity === i ? "selected" : "" %>><%= i %></option>
+
+            <% } %>
+          </select>
+        </form>
+        
+
+        <form action="/basket/delete" method="POST">
+          <input type="hidden" name="productId" value="<%= product.id %>">
+
+          <button type="submit">
+            <i class="fa-solid fa-trash-can"></i>
+          </button>
+        </form>
+        </div>
+      </td>
     </tr>
-    <tr>
-      <td class="table-product">Vit T-Shirt</td>
-      <td class="table-quantity">2</td>
-      <td class="table-price">199 kr</td>
-      <td class="table-total">398 kr</td>
-    </tr>
+
+
+    <% }) %>
   </tbody>
 </table>
 
-<button>Till kassan</button>
+<div class="cart-btn">
+  <button>Till kassan</button>
+</div>
+<% } %>
