@@ -17,7 +17,8 @@ router.get("/", function (req, res, next) {
   const visibleProducts = products.map((product) => {
     const publishedDate = new Date(product.published_at);
 
-    const diffInDays = (today - publishedDate) / (1000 * 60 * 60 * 24);
+    const diffInDays = Math.floor((today - publishedDate) / (1000 * 60 * 60 * 24)
+  );
 
     return {
       ...product,
