@@ -30,4 +30,12 @@ router.get("/new", (req, res) => {
     });
 });
 
+router.post("/delete/:id", (req, res) => {
+    const id = req.params.id;
+
+    db.prepare("DELETE FROM categories WHERE id = ?").run(id);
+
+    res.redirect("/admin/categories");
+});
+
 module.exports = router;

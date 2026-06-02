@@ -33,4 +33,12 @@ router.get("/new", (req, res) => {
     });
 });
 
+router.post("/delete/:id", (req,res) => {
+    const id = req.params.id;
+
+    db.prepare("DELETE FROM products WHERE id = ?").run(id);
+
+    res.redirect("/admin/products");
+});
+
 module.exports = router;

@@ -1,26 +1,31 @@
 <main class="main-container">
-        <div class="top-row">
-          <h2>Kategorier</h2>
-          <a class="button" href="/admin/categories/new">Ny Kategori</a>
-        </div>
+  <div class="top-row">
+    <h2>Kategorier</h2>
+      <a class="button" href="/admin/categories/new">Ny Kategori</a>
+  </div>
 
-        <table class="main-table">
-          <thead class="table-top">
-            <tr>
-              <th>Namn</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% categories.forEach(category => { %>
+  <table class="main-table">
+    <thead class="table-top">
+      <tr>
+        <th>Namn</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% categories.forEach(category => { %>
 
-            <tr>
-                <td><%= category.name %></td>
-                <td class="action">
-                  <a href="#"><i class="fa-solid fa-trash-can"> </i></a>
-                </td>
-              </tr>
-            <% }) %>
-          </tbody>
-        </table>
-      </main>
+        <tr>
+          <td><%= category.name %></td>
+
+          <td>
+            <form action="/admin/categories/delete/<%= category.id %>" method="POST">
+              <button class="delete-btn" type="submit">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</main>

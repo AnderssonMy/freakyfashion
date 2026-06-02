@@ -30,3 +30,8 @@ label {
     font-weight: bold;
 }
 
+form {
+  display: flex;
+  justify-content: center;
+}
+

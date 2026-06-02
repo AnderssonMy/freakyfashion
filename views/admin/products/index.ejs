@@ -1,30 +1,38 @@
 <main class="main-container">
-        <div class="top-row">
-          <h2>Produkter</h2>
-          <a class="button" href="/admin/products/new">Ny Produkt</a>
-        </div>
+  <div class="top-row">
+    <h2>Produkter</h2>
+      <a class="button" href="/admin/products/new">Ny Produkt</a>
+  </div>
 
-        <table class="main-table">
-          <thead class="table-top">
-            <tr>
-              <th>Namn</th>
-              <th>SKU</th>
-              <th>Pris</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <% products.forEach(product => { %>
+  <table class="main-table">
+    <thead class="table-top">
+      <tr>
+        <th>Namn</th>
+        <th>SKU</th>
+        <th>Pris</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% products.forEach(product => { %>
 
-            <tr>
-                <td><%= product.name %></td>
-                <td><%= product.sku %></td>
-                <td><%= product.price %></td>
-                <td class="action">
-                  <a href="#"><i class="fa-solid fa-trash-can"> </i></a>
-                </td>
-              </tr>
-            <% }) %>
-          </tbody>
-        </table>
-      </main>
+        <tr>
+          <td><%= product.name %></td>
+          <td><%= product.sku %></td>
+          <td><%= product.price %></td>
+          <td>
+            <form action="/admin/products/delete/<%= product.id %>" method="POST">
+              <button>
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</main>
+
+
+
+          
