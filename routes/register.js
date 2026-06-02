@@ -4,7 +4,7 @@ const router = express.Router();
 const db = require("../db");
 
 router.get("/", (req, res) => {
-  res.render("pages/register", { title: "Freaky Fashion" });
+  res.render("pages/register", { title: "Skapa konto | Freaky Fashion" });
 });
 
 router.post("/", (req, res) => {
@@ -27,14 +27,14 @@ try {
 } catch (error) {
   if (error.message.includes('UNIQUE')) {
     return res.render("pages/register", {
-      title: "Freaky Fashion", 
+      title: "Skapa konto | Freaky Fashion", 
       error: "Du är redan registrerad. Logga in."
 
   });
   }
 
   console.error(error);
-  res.status(500).render("pages/register",{ title: "Freaky Fashion", 
+  res.status(500).render("pages/register",{ title: "Skapa konto | Freaky Fashion", 
     error: "Ett oväntat fel uppstod"
   }); 
 }

@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
   const basket = req.session.basket || [];
 
   if (basket.length === 0) {
-    return res.render("pages/basket", {title: "Freaky Fashion", products: [], empty: true});
+    return res.render("pages/basket", {title: "Kassan", products: [], empty: true});
   }
 
   const products = basket.map(item => {
@@ -22,7 +22,7 @@ router.get("/", (req, res) => {
   };
 });
 
-  res.render("pages/basket", { title: "Freaky Fashion", products, empty: false 
+  res.render("pages/basket", { title: "Kassan", products, empty: false 
   });
 });
 

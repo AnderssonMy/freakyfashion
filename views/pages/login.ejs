@@ -1,0 +1,27 @@
+<h1>Logga in</h1>
+
+<form action="/login" method="POST">
+  <div class="login-form">
+    <div>
+      <label for="email">E-post</label>
+      <input type="text" id="email" name="email" required />
+    </div>
+
+    <div>
+      <label for="password">Lösenord</label>
+      <input type="password" id="password" name="password" required />
+    </div>
+
+    <button class="sub-button" type="submit">Logga in</button>
+  </div>
+</form>
+
+<% if (typeof error !== 'undefined') { %>
+    <div class="login-error">
+    <p><%= error %></p>
+    <p>
+        Har du inget konto? 
+        <a href="/register">Registrera dig här</a>
+    </p>
+    </div>
+    <% } %>
