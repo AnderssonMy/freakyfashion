@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const upload = require("./uploads");
 
 const db = require("../../db");
 
@@ -36,6 +37,18 @@ router.post("/delete/:id", (req, res) => {
     db.prepare("DELETE FROM categories WHERE id = ?").run(id);
 
     res.redirect("/admin/categories");
+});
+
+router.post("/new", upload.single("image"), (req, res) => {
+    const {name} = req.body;
+
+    const image = req.file ? "/images/categories/" + req.file.filename : null;
+
+    const slug = name.toLowerCase().replace(/\s+/g, "-");
+
+    db.prepare(`INSERT INTO categories (name, slug, image) VALUES (?, ?, ?)`).run(name, slug, image);
+
+    res.redirect("/admin/categories/new");
 });
 
 module.exports = router;
