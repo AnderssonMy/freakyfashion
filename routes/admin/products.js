@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const upload = require("./uploads");
 
 const db = require("../../db");
 
@@ -39,6 +40,19 @@ router.post("/delete/:id", (req,res) => {
     db.prepare("DELETE FROM products WHERE id = ?").run(id);
 
     res.redirect("/admin/products");
+});
+
+router.post("/new",upload.single("image"), (req, res) => {
+     
+    const {name, description, brand, SKU, price, published_at, category_id} = req.body;
+
+    const image = req.file ? "/images/products/" + req.file.filename : null;
+
+    const slug = name.toLowerCase().replace(/\s+/g, "-");
+
+    db.prepare(`INSERT INTO products (name, slug, description, price, brand, image, published_at, SKU, category_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`).run(name, slug, description, price, brand, image, published_at, SKU, category_id);
+
+    res.redirect("/admin/products/new");
 });
 
 module.exports = router;
