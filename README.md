@@ -18,8 +18,8 @@ Node.js, Express, EJS, SQLite (better-sqlite3), express-session, multer, HTML, C
 Requires Node.js 20 or later.
 
 ```bash
-git clone https://github.com/[AnderssonMy]/[freakyfashion].git
-cd [freakyfashion]
+git clone https://github.com/AnderssonMy/freakyfashion.git
+cd freakyfashion
 npm install
 npm run dev
 ```
@@ -28,4 +28,4 @@ Open http://localhost:3000. The admin area is at /admin/products.
 
 Author
 
-[My Andersson] – [link]
+My Andersson – https://github.com/AnderssonMy
